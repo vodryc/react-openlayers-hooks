@@ -1,21 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Plot from 'react-plotly.js'
+import { RasterContext } from '../contexts/RasterContext';
 
 const Chart = () => {
+    const [state] = useContext(RasterContext);
+
     return (
         <div>
             <Plot
                 data={[
                     {
-                        x: [1,2,3],
-                        y: [2,6,3],
+                        y: state.raster_history,
                         type: 'scatter',
                         mode: "lines+markers",
                         marker: {color: 'red'}
-                    },
-                    {type: 'bar', x: [1,2,3], y: [2,5,3]}
+                    }
                 ]}
-                layout={ {width: 320, height: 240, title: 'A fancy plot'}}
+                layout={ {width: 600, height: 240, title: 'A fancy plot'}}
             />
         </div>
     )

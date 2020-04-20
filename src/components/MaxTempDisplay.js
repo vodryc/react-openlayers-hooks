@@ -8,7 +8,7 @@ const MaxTempDisplay = () => {
     const [state] = useContext(RasterContext);
     let value = '-';
     if (state.raster_value) {
-        value = (state.raster_value * 9 / 5 + 32).toFixed(0) + ' F'; // Convert to Fahrenheit
+        value = state.raster_value + ' F';
     }
 
     return (
